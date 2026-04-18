@@ -372,10 +372,12 @@ for line in data:
                 even_count += 1
             else:
                 odd_count += 1
-        
+
         if even_count > odd_count:
             even_nums.append(num_str)
-          
+            print("Четные цифры:", even_nums)
+            print()
+            print("Другие числа:", num_str)
         elif odd_count > even_count:
             odd_nums.append(num_str)
         else:
@@ -384,11 +386,10 @@ for line in data:
     even_lines.append(" ".join(even_nums))
     odd_lines.append(" ".join(odd_nums))
     eq_lines.append(" ".join(eq_nums))
-print(even_lines)
 
-print("Числа с преобладанием ЧЕТНЫХ цифр:")
-for line in even_lines:
-    print(line)
+# print("Числа с преобладанием ЧЕТНЫХ цифр:")
+# for line in even_lines:
+#     print(line)
 
 # print("\nЧисла с преобладанием НЕЧЕТНЫХ цифр:")
 # for line in odd_lines:

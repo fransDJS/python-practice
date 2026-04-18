@@ -476,15 +476,3 @@ words = text.split()
 # (lambda t: {(min(a, b), max(a, b))for a in t.split()for b in t.split()if a < b and len(set(a) & set(b)) > 2})(text)
 
 
-from itertools import accumulate
-
-text = "мама мыла раму"
-
-# Проверяем split
-words = text.split()
-print(f"words = {words}")  # должно быть ['мама', 'мыла', 'раму']
-
-# Теперь accumulate
-for value in accumulate(words):
-    print(f"value = {value}")  # должно быть ['мама'], потом ['мама', 'мыла'] и т.д.
-    print(' '.join(value))

@@ -229,26 +229,26 @@
 #     result += char
 
 # print(result)
-numbers = input().split()
-result = []
+# numbers = input().split()
+# result = []
 
-for num_str in numbers:
-    num = int(num_str)
-    binary = f'{num:b}'
+# for num_str in numbers:
+#     num = int(num_str)
+#     binary = f'{num:b}'
     
-    digit = len(binary) # 3
-    units = binary.count('1') # 2
-    zeros = binary.count('0') # 1
+#     digit = len(binary) # 3
+#     units = binary.count('1') # 2
+#     zeros = binary.count('0') # 1
 
-    stats = {
-        "digits": digit,
-        "units": units,
-        "zeros": zeros
-    }
+#     stats = {
+#         "digits": digit,
+#         "units": units,
+#         "zeros": zeros
+#     }
 
-    result.append(stats)
+#     result.append(stats)
 
-print(result)
+# print(result)
 
 
 

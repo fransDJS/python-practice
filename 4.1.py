@@ -755,29 +755,267 @@ from functools import reduce
 # result = reduce(lambda acc, s: max(acc, len(s)), data, 0)
 # print(result)
 
-dicts = [{'a': 1}, {'b': 2}, {'a': 3}]
+# dicts = [{'a': 1}, {'b': 2}, {'a': 3}]
 
-merged = reduce(
-    lambda acc, d: {k: acc.get(k, 0) + v for k, v in d.items()} | acc,
-    dicts,
-    {}
-)
-print(merged)  # {'a': 4, 'b': 2}
+# merged = reduce(
+#     lambda acc, d: {k: acc.get(k, 0) + v for k, v in d.items()} | acc,
+#     dicts,
+#     {}
+# )
+# print(merged)  # {'a': 4, 'b': 2}
 
-from functools import reduce
+# from functools import reduce
 
-numbers = [5, 1, 8, 3, 9, 2, 7]
+# numbers = [5, 1, 8, 3, 9, 2, 7]
 
-def top_two(acc, x):
-    first, second = acc
-    if x > first:
-        # новый максимум, старый максимум становится вторым
-        return (x, first)
-    elif x > second:
-        # новый второй максимум
-        return (first, x)
-    else:
-        return (first, second)
+# def top_two(acc, x):
+#     first, second = acc
+#     if x > first:
+#         # новый максимум, старый максимум становится вторым
+#         return (x, first)
+#     elif x > second:
+#         # новый второй максимум
+#         return (first, x)
+#     else:
+#         return (first, second)
 
-result = reduce(top_two, numbers, (float('-inf'), float('-inf')))
-print(result[1])  # 8
+# result = reduce(top_two, numbers, (float('-inf'), float('-inf')))
+# print(result[1])  # 8
+
+
+# def make_list(length, value = 0):
+#     return [value for _ in range(length)]
+
+# print(make_list(7, 2))
+
+# in_stock = {"coffee": 0, "milk": 0, "cream": 0}
+
+# RECIPES = {
+#     "Эспрессо": {"coffee": 1},
+#     "Капучино": {"coffee": 1, "milk": 3},
+#     "Макиато": {"coffee": 2, "milk": 1},
+#     "Кофе по-венски": {"coffee": 1, "cream": 2},
+#     "Латте Макиато": {"coffee": 1, "milk": 2, "cream": 1},
+#     "Кон Панна": {"coffee": 1, "cream": 1}
+# }
+
+
+# def order(*preferences):
+#     global in_stock
+#     for drink in preferences:
+#         recipe = RECIPES.get(drink)
+#         if recipe is None:
+#             continue
+#         if all(in_stock.get(ing, 0) >= need for ing, need in recipe.items()):
+#             for ing, need in recipe.items():
+#                 in_stock[ing] -= need
+#             return drink
+#     return "К сожалению, не можем предложить Вам напиток"
+
+# in_stock = {"coffee": 4, "milk": 4, "cream": 0}
+# print(order("Капучино", "Макиато", "Эспрессо"))
+# print(order("Капучино", "Макиато", "Эспрессо"))
+# print(order("Капучино", "Макиато", "Эспрессо"))
+
+
+# l = []
+
+# n1 = int(input())
+
+# for i in range(n1):
+#     n2 = int(input())
+#     result = n2 ** 3
+#     l.append(result)
+
+# print(l)
+
+# result = ([int(input()) ** 3 for i in range(int(input()))])
+# print(result)
+
+
+
+# def fact(n):
+#     factorial = 1
+#     for i in range(2, n + 1):
+#         factorial *= i
+#     return factorial
+
+# print(fact(5))
+
+# Вывод программы:
+# 120
+
+
+# def fact(n):
+#     if n == 0:  # 0! = 1
+#         return 1
+#     return fact(n - 1) * n  # n! = (n - 1)! * n
+
+# print(fact(5))
+
+# Вывод программы:
+# 120
+
+# from timeit import timeit
+# from sys import setrecursionlimit
+
+
+# def fib(n):
+#     if n not in cache:
+#         cache[n] = fib(n - 1) + fib(n - 2)
+#     return cache[n]
+
+# setrecursionlimit(2000)
+# cache = {0: 1, 1: 1}
+# print(f"Среднее время вычисления: "
+#      f"{round(timeit('fib(1000)', number=10, globals=globals()) / 10, 6)} с.")
+
+# # Вывод программы:
+# # Среднее время вычисления: 0.000132 с.
+
+
+# from timeit import timeit
+# from functools import lru_cache
+
+# @lru_cache(maxsize=1000)
+# def fib(n):
+#     if n in (0, 1):
+#         return 1
+#     return fib(n - 1) + fib(n - 2)
+  
+# print(f"Среднее время вычисления: "
+#      f"{round(timeit('fib(35)', number=10, globals=globals()) / 10, 6)} с.")
+
+# # Вывод программы:
+# # Среднее время вычисления: 2e-06 с.
+
+
+# def fib(n):
+#     n_1, n_2 = 1, 1
+#     for i in range(n):
+#         yield n_1
+#         n_1, n_2 = n_2, n_1 + n_2
+
+
+# print(", ".join(str(x) for x in fib(10)))
+
+# # Вывод программы:
+# # 1, 1, 2, 3, 5, 8, 13, 21, 34, 55
+
+
+# def recursive_sum(*args):
+#     # Печатаем текущий вызов (для трассировки)
+#     print(f"# Вызов recursive_sum{args}")
+    
+#     # Базовый случай
+#     if not args:
+#         return 0
+    
+#     # Рекурсивный случай
+#     result = recursive_sum(*args[:-1]) + args[-1]
+    
+#     # Если нужно показать результат на каждом шаге (опционально)
+#     print(f"# Возврат {result} для {args}")
+    
+#     return result
+
+# # Вызов функции
+# result = recursive_sum(1, 2, 3)
+# print(f"result = {result}")
+
+# def factorial(n):
+#     if n == 0:
+#         return 1
+#     return n * factorial(n-1)
+
+# print(factorial(4))
+
+
+# def same_type(func):
+#     def wrapper(*args, **kwargs):
+#         print(f"\n--- Проверка функции {func.__name__} с аргументами {args} ---")
+#         if args:
+#             first_type = type(args[0])
+#             print(f"Тип первого аргумента: {first_type.__name__}")
+#             for i, arg in enumerate(args[1:], start=1):
+#                 arg_type = type(arg)
+#                 print(f"  Аргумент {i}: {arg} -> тип {arg_type.__name__}")
+#                 if arg_type is not first_type:
+#                     print("❌ Обнаружены различные типы данных")
+#                     return None
+#             print("✅ Все типы одинаковы, вызываем функцию")
+#         else:
+#             print("Нет аргументов, вызываем функцию")
+#         return func(*args, **kwargs)
+#     return wrapper
+
+# # ========== ТЕСТОВЫЕ ФУНКЦИИ ==========
+
+# @same_type
+# def add(a, b):
+#     """Складывает два числа"""
+#     return a + b
+
+# @same_type
+# def combine(*words):
+#     """Объединяет строки через пробел"""
+#     return ' '.join(words)
+
+# @same_type
+# def multiply(a, b, c):
+#     """Перемножает три числа"""
+#     return a * b * c
+
+# # ========== ВЫЗОВЫ ДЛЯ ПРОВЕРКИ ==========
+
+# print("=" * 50)
+# print("ТЕСТ 1: add(3, 5.2) - разные типы")
+# result = add(3, 5.2)
+# print(f"Результат: {result}\n")
+
+# print("=" * 50)
+# print("ТЕСТ 2: add(7, '9') - разные типы")
+# result = add(7, '9')
+# print(f"Результат: {result}\n")
+
+# print("=" * 50)
+# print("ТЕСТ 4: combine('Hello', 'world', '!') - все строки")
+# result = combine('Hello', 'world', '!')
+# print(f"Результат: '{result}'\n")
+
+
+# def make_linear(lst):
+#     result = []
+#     for item in lst:
+#         if isinstance(item, list):
+#             # Если элемент — список, рекурсивно выпрямляем его и добавляем
+#             result.extend(make_linear(item))
+#         else:
+#             # Если не список — просто добавляем
+#             result.append(item)
+#     return result
+
+# n = int(input())
+# unique = []
+
+# for _ in range(n):
+#     s = input()
+#     if s not in unique:
+#         unique.append(s)
+
+# print(*unique, sep='\n')
+
+
+n = int(input())
+
+sort_digit = []
+
+for _ in range(n):
+    sort_digit.append(int(input()))
+
+min_num = min(sort_digit)
+max_num = max(sort_digit)
+
+for num in sort_digit:
+    if num != min_num and num != max_num:
+        print(num)
