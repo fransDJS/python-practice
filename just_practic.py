@@ -156,5 +156,61 @@ n = int(input())
 for i in range(n):
     print(f"{i + 1} {m}")
     m = m  + m * p / 100
-    
+
+
+ #======================================= Повторить========================   
+matrix = [[]] * 3 # [[A][A][A]] [[][][]]
+matrix[1].append("A")
+print(matrix) # ? Почему так
+
+a = [1, 2]
+b = a[:]
+a += [3]
+print(b) # ?
+
+
+from copy import deepcopy
+
+a = [1, [2, [1,[2, [3]]]]]
+b = deepcopy(a)
+b[1].append(300)
+b[1][1].append(999999)
+print(a)
+
+a = [1, 2, 3]
+print(a[10:20]) # ?
+print(a[::-1]) #  ? 
+
+items = [1, 2, 3, 4]
+for x in items:
+    items.remove(x)
+print(items) # ?
+
+# a = [1]
+# [a.append(x) for x in a]
+# print(a) #бесконечный 
+
+# Отсортируй L = ["apple", "pear", "banana"] по последней букве слова
+l = ["apple", "pear", "banana"]
+l.sort(key=lambda x: x[-1])     # key -> function
+print(l)
+
+
+lst = [0, 100, 20, 5, 600] # 3
+# Как одной строкой посчитать, сколько в списке lst чисел больше 10?
+
+count = len([i for i in lst if i > 10])
+count_1 = sum(i > 10 for i in lst)
+# count = 0
+# for i in lst:
+#     if i > 10:
+#         count += 1
+print(count) # len()
+print(count_1) # len()
+
+
+a, *b, c = [1, 2, 3, 4, 5]
+print(a) # ? 
+print(b) # ? 
+print(c) # ? 
 

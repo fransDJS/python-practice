@@ -11,10 +11,10 @@
             "id": "f8d05a6d4375515f",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "Новая вкладка"
+              "icon": "lucide-git-fork",
+              "title": "Граф"
             }
           }
         ]
@@ -55,6 +55,19 @@
               "state": {},
               "icon": "lucide-bookmark",
               "title": "Закладки"
+            }
+          },
+          {
+            "id": "a09e7984b77414a0",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Файловый менеджер"
             }
           }
         ]

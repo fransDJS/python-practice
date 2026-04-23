@@ -298,7 +298,91 @@ import numpy as np
 # print("Нормализованные данные:")
 # print(normalized)
 
-import pandas as pd
+# import pandas as pd
 
-heros = pd.Series([100, 200, 300], index=["Такеда", "Хонда", "Ода"])
-print(heros)
+# heros = pd.Series([100, 200, 300], index=["Такеда", "Хонда", "Ода"])
+# print(heros)
+
+# import numpy as np
+
+# # Доходности 3 активов за 5 дней
+# returns = np.array([
+#     [0.05, 0.02, 0.01],
+#     [0.04, 0.03, 0.02],
+#     [0.06, 0.01, 0.03],
+#     [0.03, 0.04, 0.02],
+#     [0.05, 0.02, 0.04]
+# ])
+
+# # Ковариационная матрица (риски и корреляции)
+# cov_matrix = np.cov(returns.T)
+# print("Ковариационная матрица:")
+# print(cov_matrix)
+
+# # Определитель (близок к 0 → активы сильно связаны)
+# det_cov = np.linalg.det(cov_matrix)
+# print(f"Определитель: {det_cov:.6f}")
+
+# # Оптимальные веса портфеля (пример)
+# weights = np.linalg.solve(cov_matrix, np.ones(3))
+# weights = weights / np.sum(weights)
+# print(f"Оптимальные веса: {weights}")
+
+
+import numpy as np
+
+# Матрица признаков (3 объекта, у каждого по 2 признака: например, доход и кредитный рейтинг)
+X = np.array([
+    [100, 700], 
+    [50, 650], 
+    [120, 800]
+])
+
+# Веса модели (насколько важен каждый признак)
+weights = np.array([0.5, 0.1])
+bias = -10
+
+# Матричное умножение: X @ weights + bias
+predictions = np.dot(X, weights) + bias
+
+print(f"Прогнозы модели: {predictions}")
+# Каждое число здесь — это прогноз для конкретного клиента/актива
+
+
+import numpy as np
+
+# Реальные цены акций
+y_true = np.array([100, 150, 200])
+
+# То, что нагадала наша модель
+y_pred = np.array([90, 160, 210])
+
+# Считаем MSE вручную через NumPy
+error = y_true - y_pred
+mse = np.mean(error**2)
+
+print(f"Ошибка MSE: {mse}") 
+# (10^2 + 10^2 + 10^2) / 3 = 100.0
+
+import numpy as np
+
+a = np.array([2, -1.3])
+b = np.array([4, -2.6])
+
+# Длины (нормы)
+norm_a = np.linalg.norm(a)
+norm_b = np.linalg.norm(b)
+
+print(f"Длина a: {norm_a:.3f}")
+print(f"Длина b: {norm_b:.3f}")
+
+# Проверка на сонаправленность через косинусное расстояние
+# Если косинус угла между ними = 1, они сонаправлены
+cos_sim = np.dot(a, b) / (norm_a * norm_b)
+print(f"Косинус угла: {cos_sim}") # Будет 1.0
+
+a = np.array([2, 1, 0])
+b = np.array([1, 3, 2])
+cross = np.cross(a, b)
+length = np.linalg.norm(cross)
+print(length)
