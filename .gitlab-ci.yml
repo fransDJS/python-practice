@@ -1,0 +1,4 @@
+test-job:
+  stage: test
+  script:
+    - echo "Привет, бро! Всё работает отлично!"
